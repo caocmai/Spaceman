@@ -14,21 +14,17 @@ print(secret_word_list)
 print(list_start)
 
 
-
-max_number_of_guesses = 7
-number_of_guesses = 0
+number_of_guesses = 7
 
 # def check_if_all_matches(convert_answer_string):
 #     if convert_answer_string == secret_word:
 #         print("You win")
 
 
-while number_of_guesses < max_number_of_guesses:
-    user_input = input("Enter a letter: ")
+while number_of_guesses > 0:
+    print('=============================================')
+    user_input = input("Guess a letter: ")
 
-    if user_input in all_letters_option:
-        all_letters_option.remove(user_input)
-        print(''.join(all_letters_option))
 
     compare_list = []
 
@@ -41,7 +37,12 @@ while number_of_guesses < max_number_of_guesses:
         number_of_guesses = number_of_guesses
     else:
         print("Sorry, your chosen letter is not in the secret word.")
-        number_of_guesses += 1
+        number_of_guesses -= 1
+
+    if user_input in all_letters_option:
+        all_letters_option.remove(user_input)
+        all_letters_updated = ''.join(all_letters_option)
+        print("Letters left to guess: " + all_letters_updated)
 
     # this returns the index
     print(compare_list)
@@ -58,7 +59,7 @@ while number_of_guesses < max_number_of_guesses:
     print(convert_answer_string)
 
     if convert_answer_string == secret_word:
-        print("You win")
+        print("Congratulations! You guessed all of the letters in the secret word. You win")
         break
 
     print("This is list start")
@@ -66,10 +67,12 @@ while number_of_guesses < max_number_of_guesses:
     # print(''.join(list_start))
 
 
-if number_of_guesses == 7:
-    print("You lose")
+if number_of_guesses == 0:
+    print("You are out of guesses. The secret word is " + secret_word + ". You lose")
 
 # if user_input in secret_word_list:
 #   print("in the word")
 # else:
 #   print("not in word")
+
+#use find().
