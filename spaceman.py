@@ -1,20 +1,28 @@
 import random
+import os
+
+# def load_word():
+#     f = open('words.txt', 'r')
+#     words_list = f.readlines()
+#     f.close()
+
+#     # words_list = words_list[0].split(' ')
+#     secret_word = random.choice(words_list)
+#     return secret_word
 
 def load_word():
     f = open('words.txt', 'r')
     words_list = f.readlines()
     f.close()
-
     words_list = words_list[0].split(' ')
     secret_word = random.choice(words_list)
     return secret_word
 
-
-secret_word = ""
+secret_word = load_word()
 secret_word_to_list = []  # This replaces letters to dashes
 all_letters_option = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
                       't', 'u', 'v', 'w', 'x', 'y', 'z']
-secret_word_to_dashes = []  #
+secret_word_to_dashes = []  # Changes letters to dashes
 
 for ch in secret_word:
     secret_word_to_list.append(ch)
@@ -31,6 +39,7 @@ for ch in secret_word:
 
 number_of_guesses = 7
 print("Welcome to Spaceman. You have 7 guesses to choose all the correct letters in the secret word.")
+print("Guess the secret word: " + ''.join(secret_word_to_dashes))
 
 while number_of_guesses > 0:
     print('=================================================')
