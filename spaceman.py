@@ -9,6 +9,7 @@ def load_word():
     secret_word = random.choice(words_list)
     return secret_word
 
+
 secret_word = load_word()
 secret_word_to_list = []  # This separates the letters into a list
 secret_word_to_dashes = []  # Changes letters to dashes
@@ -21,13 +22,6 @@ for ch in secret_word:
 for ch in secret_word:
     secret_word_to_dashes.append("-")
 
-# print(secret_word_to_list)
-# print(secret_word_to_dashes)
-
-# def check_if_all_matches(convert_answer_string):
-#     if convert_answer_string == secret_word:
-#         print("You win")
-
 number_of_guesses = len(secret_word)
 print("Welcome to Spaceman. You have " + str(number_of_guesses) + " guesses to choose all the correct letters in the secret word.")
 print("Guess the secret word: " + ''.join(secret_word_to_dashes))
@@ -36,11 +30,11 @@ while number_of_guesses > 0:
     print('=================================================')
     user_input = input("Guess a letter: ")
 
-    compare_list = []
+    guessed_correct_character_index = []
 
     for i in range(len(secret_word_to_list)):
         if secret_word_to_list[i] == user_input:
-            compare_list.append(i)
+            guessed_correct_character_index.append(i)
 
     if user_input in secret_word:
         print("Great! Your chosen letter is in the secret word!")
@@ -55,24 +49,16 @@ while number_of_guesses > 0:
         print("Letters left to guess: " + all_letters_updated)
 
     print('Number of guesses left: ' + str(number_of_guesses))
-    # convert_answer_string = ''
 
-    for index in compare_list:
+    for index in guessed_correct_character_index:
         secret_word_to_dashes[index] = user_input
 
     convert_answer_string = ''.join(secret_word_to_dashes)
-    # print(''.join(secret_word_to_dashes))
     print(convert_answer_string)
 
     if convert_answer_string == secret_word:
         print("Congratulations! You guessed all of the letters in the secret word. You win")
         break
 
-    # print(secret_word_to_dashes)
-    # print(''.join(secret_word_to_dashes))
-
-
 if number_of_guesses == 0:
     print("You are out of guesses. The secret word was " + secret_word + ". You lose.")
-
-#use find().
