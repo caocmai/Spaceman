@@ -1,15 +1,6 @@
 import random
 import os
 
-# def load_word():
-#     f = open('words.txt', 'r')
-#     words_list = f.readlines()
-#     f.close()
-
-#     # words_list = words_list[0].split(' ')
-#     secret_word = random.choice(words_list)
-#     return secret_word
-
 def load_word():
     f = open('words.txt', 'r')
     words_list = f.readlines()
@@ -19,10 +10,10 @@ def load_word():
     return secret_word
 
 secret_word = load_word()
-secret_word_to_list = []  # This replaces letters to dashes
+secret_word_to_list = []  # This separates the letters into a list
+secret_word_to_dashes = []  # Changes letters to dashes
 all_letters_option = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
                       't', 'u', 'v', 'w', 'x', 'y', 'z']
-secret_word_to_dashes = []  # Changes letters to dashes
 
 for ch in secret_word:
     secret_word_to_list.append(ch)
@@ -63,8 +54,6 @@ while number_of_guesses > 0:
         all_letters_updated = ''.join(all_letters_option)
         print("Letters left to guess: " + all_letters_updated)
 
-    # this returns the index
-    # print(compare_list)
     print('Number of guesses left: ' + str(number_of_guesses))
     # convert_answer_string = ''
 
@@ -85,10 +74,5 @@ while number_of_guesses > 0:
 
 if number_of_guesses == 0:
     print("You are out of guesses. The secret word was " + secret_word + ". You lose.")
-
-# if user_input in secret_word_to_list:
-#   print("in the word")
-# else:
-#   print("not in word")
 
 #use find().
