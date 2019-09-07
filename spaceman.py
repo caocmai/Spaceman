@@ -15,6 +15,8 @@ secret_word_to_list = []  # This separates the letters into a list
 secret_word_to_dashes = []  # Changes letters to dashes
 all_letters_option = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
                       't', 'u', 'v', 'w', 'x', 'y', 'z']
+number_of_guesses = len(secret_word)
+
 
 for ch in secret_word:
     secret_word_to_list.append(ch)
@@ -22,12 +24,11 @@ for ch in secret_word:
 for ch in secret_word:
     secret_word_to_dashes.append("-")
 
-number_of_guesses = len(secret_word)
 print("Welcome to Spaceman. You have " + str(number_of_guesses) + " guesses to choose all the correct letters in the secret word.")
 print("Guess the secret word: " + ''.join(secret_word_to_dashes))
 
 while number_of_guesses > 0:
-    print('=================================================')
+    print('===================================================================')
     user_input = input("Guess a letter: ")
 
     guessed_correct_character_index = []
