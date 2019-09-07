@@ -37,8 +37,8 @@ for ch in secret_word:
 #     if convert_answer_string == secret_word:
 #         print("You win")
 
-number_of_guesses = 7
-print("Welcome to Spaceman. You have 7 guesses to choose all the correct letters in the secret word.")
+number_of_guesses = len(secret_word)
+print("Welcome to Spaceman. You have " + str(number_of_guesses) + " guesses to choose all the correct letters in the secret word.")
 print("Guess the secret word: " + ''.join(secret_word_to_dashes))
 
 while number_of_guesses > 0:
@@ -84,7 +84,7 @@ while number_of_guesses > 0:
 
 
 if number_of_guesses == 0:
-    print("You are out of guesses. The secret word is " + secret_word + ". You lose.")
+    print("You are out of guesses. The secret word was " + secret_word + ". You lose.")
 
 # if user_input in secret_word_to_list:
 #   print("in the word")
