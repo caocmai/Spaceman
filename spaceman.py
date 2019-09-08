@@ -15,15 +15,18 @@ all_letters_option = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'
                       'm', 'n', 'o', 'p', 'q', 'r', 's',
                       't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-secret_word_to_list = []  # This separates the letters into a list
+# This separates the letters into a list
+secret_word_to_list = []
 for ch in secret_word:
     secret_word_to_list.append(ch)
 
-secret_word_to_dashes = []  # Changes letters to dashes
+# Changes letters to dashes
+secret_word_to_dashes = []
 for ch in secret_word:
     secret_word_to_dashes.append("-")
 
-print("Welcome to Spaceman. You have " + str(number_of_guesses) + " incorrect guesses to choose all the correct letters in the secret word.")
+print("Welcome to Spaceman. You have " + str(number_of_guesses) + " incorrect guesses to choose all the correct "
+                                                                  "letters in the secret word.")
 print("Guess the secret word: " + ''.join(secret_word_to_dashes))
 
 while number_of_guesses > 0:
@@ -36,6 +39,7 @@ while number_of_guesses > 0:
 
     guessed_correct_character_index = []
 
+# Checks if guessed letter in secret word, and adds the index of letter(s) in word
     if user_input in secret_word:
         for i in range(len(secret_word_to_list)):
             if secret_word_to_list[i] == user_input:
@@ -46,6 +50,7 @@ while number_of_guesses > 0:
         print("Yikes. Your chosen letter is not in the secret word.")
         number_of_guesses -= 1
 
+# Checks and displays letters left to guess
     if user_input in all_letters_option:
         all_letters_option.remove(user_input)
         all_letters_updated = ''.join(all_letters_option)
@@ -53,6 +58,7 @@ while number_of_guesses > 0:
 
     print('Number of guesses left: ' + str(number_of_guesses))
 
+# Using the index, populates the letters in the right place, and displays it out
     for index in guessed_correct_character_index:
         secret_word_to_dashes[index] = user_input
 
@@ -63,5 +69,6 @@ while number_of_guesses > 0:
         print("Congratulations! You guessed all of the letters in the secret word. You won")
         break
 
+# Player wins if all letters are guessed for the secret word
 if number_of_guesses == 0:
     print("You are out of guesses. The secret word was " + secret_word + ". You lose.")
