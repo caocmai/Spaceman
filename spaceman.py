@@ -1,5 +1,4 @@
 import random
-import os
 
 def load_word():
     f = open('words.txt', 'r')
@@ -11,16 +10,15 @@ def load_word():
 
 
 secret_word = load_word()
-secret_word_to_list = []  # This separates the letters into a list
-secret_word_to_dashes = []  # Changes letters to dashes
+number_of_guesses = len(secret_word)
 all_letters_option = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
                       't', 'u', 'v', 'w', 'x', 'y', 'z']
-number_of_guesses = len(secret_word)
 
-
+secret_word_to_list = []  # This separates the letters into a list
 for ch in secret_word:
     secret_word_to_list.append(ch)
 
+secret_word_to_dashes = []  # Changes letters to dashes
 for ch in secret_word:
     secret_word_to_dashes.append("-")
 
@@ -30,6 +28,10 @@ print("Guess the secret word: " + ''.join(secret_word_to_dashes))
 while number_of_guesses > 0:
     print('===================================================================')
     user_input = input("Guess a letter: ")
+
+    if len(user_input) > 1:
+        print("Guess only one letter at a time!")
+        user_input = input("Guess a letter: ")
 
     guessed_correct_character_index = []
 
@@ -55,10 +57,10 @@ while number_of_guesses > 0:
         secret_word_to_dashes[index] = user_input
 
     convert_answer_string = ''.join(secret_word_to_dashes)
-    print(convert_answer_string)
+    print("Guess the secret word: " + convert_answer_string)
 
     if convert_answer_string == secret_word:
-        print("Congratulations! You guessed all of the letters in the secret word. You win")
+        print("Congratulations! You guessed all of the letters in the secret word. You won")
         break
 
 if number_of_guesses == 0:
