@@ -8,7 +8,7 @@ def load_word():
     secret_word = random.choice(words_list)
     return secret_word
 
-
+# Load secret word
 secret_word = load_word()
 number_of_guesses = len(secret_word)
 all_letters_option = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -29,6 +29,7 @@ print("Welcome to Spaceman. You have " + str(number_of_guesses) + " incorrect gu
                                                                   "letters in the secret word.")
 print("Guess the secret word: " + ''.join(secret_word_to_dashes))
 
+# Program runs when guesses are greater than 0
 while number_of_guesses > 0:
     print('===================================================================')
     user_input = input("Guess a letter: ")
