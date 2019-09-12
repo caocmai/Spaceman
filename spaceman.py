@@ -15,7 +15,7 @@ all_letters_option = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'
                       'm', 'n', 'o', 'p', 'q', 'r', 's',
                       't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-# This separates the letters into a list
+# This separates the letters in secret word onto a list
 secret_word_to_list = []
 for ch in secret_word:
     secret_word_to_list.append(ch)
